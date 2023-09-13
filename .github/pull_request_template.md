@@ -1,6 +1,6 @@
 ## Done Criteria Pull Request
 
-## Issue #11 https://github.com/Access-Point-Program/cohort-3-simulation-runner/issues/11
+## Issue #18
 
 ## Acceptance Criteria
 - [ ] Meets all predetermined requirements
