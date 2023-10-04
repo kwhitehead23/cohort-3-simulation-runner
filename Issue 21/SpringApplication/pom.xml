@@ -14,7 +14,7 @@
 	<name>HocusPocusReactAppredo</name>
 	<description>Demo project for Spring Boot and react</description>
 	<properties>
-		<java.version>21</java.version>
+		<java.version>17</java.version>
 		<frontend-src-dir>${project.basedir}/UI/src</frontend-src-dir>
 	</properties>
 	<dependencies>
