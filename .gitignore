@@ -35,6 +35,8 @@ build/
 ### Node ###
 ui/node_modules/
 ui/build/
+frontend/node_modules/
+frontend/build/
 /.pnp
 .pnp.js
 
