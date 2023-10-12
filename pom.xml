@@ -75,7 +75,7 @@
 							<goal>install-node-and-npm</goal>
 						</goals>
 					</execution>
-					<execution>
+					<execution> 
 						<id>run-npm-install</id>
 						<phase>compile</phase>
 						<goals>
