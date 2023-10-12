@@ -80,7 +80,7 @@
 						<goals>
 							<goal>npm</goal>
 						</goals>
-						<phase>prepare-package</phase>
+						<phase>compile</phase>
 						<configuration>
 							<arguments>run build</arguments>
 						</configuration>
