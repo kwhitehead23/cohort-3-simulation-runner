@@ -1,13 +1,12 @@
-package com.HocusPocus.HocusPocusReactAppredo;
+package com.HocusPocus.Simulation;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class HocusPocusReactAppredoApplicationTests {
+class SimulationTests {
 
 	@Test
 	void contextLoads() {
 	}
-
 }

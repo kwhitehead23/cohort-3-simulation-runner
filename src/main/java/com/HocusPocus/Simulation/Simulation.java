@@ -1,13 +1,13 @@
-package com.HocusPocus.HocusPocusReactAppredo;
+package com.HocusPocus.Simulation;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HocusPocusReactAppredoApplication {
+public class Simulation {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HocusPocusReactAppredoApplication.class, args);
+		SpringApplication.run(Simulation.class, args);
 	}
 
 }
