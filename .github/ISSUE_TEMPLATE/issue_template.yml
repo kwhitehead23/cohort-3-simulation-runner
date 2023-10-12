@@ -1,0 +1,26 @@
+name: Hocus Pocus Issue Template
+description: Issue Template
+title: 'As a [___], [___]'
+labels: []
+assignees:
+  - '@Access-Point-Program/hocus-pocus'
+body:
+  - type: textarea
+    id: component
+    attributes:
+      label: Description
+    validations:
+      required: true
+  - type: checkboxes
+    id: definition-of-ready
+    attributes:
+      label: Definition of Ready
+      description: A set of agreements that determine when something is ready to begin, e.g., when a user story is ready to be taken into a sprint or when all necessary conditions are right for a team to start a sprint.
+      options:
+        - label: Need to be properly informed on how to do a story before starting it
+        - label: Make sure that the stories are taken on when you expect that you can complete them
+        - label: Make sure that there are proper materials to complete stories before starting them
+        - label: Need to discuss stories as a group before adding them to the backlog
+        - label: Having a contingency plan
+        - label: Have a game plan on how to complete the story
+        - label: To start a story the team needs to agree that a story has enough detail on what should be done and that it is close enough to the project manager's idea
