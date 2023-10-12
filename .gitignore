@@ -33,15 +33,10 @@ build/
 .vscode/
 
 ### Node ###
-!**/node_modules/
+ui/node_modules/
+ui/build/
 /.pnp
 .pnp.js
-
-# testing
-!**/coverage/
-
-# production
-!**/build/
 
 # misc
 .DS_Store
