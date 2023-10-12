@@ -15,7 +15,7 @@
 	<description>Demo project for Spring Boot and react</description>
 	<properties>
 		<java.version>17</java.version>
-		<frontend-src-dir>${project.basedir}/UI/src</frontend-src-dir>
+		<frontend-src-dir>${project.basedir}/ui/src</frontend-src-dir>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -42,7 +42,7 @@
 	<build>
 		<resources>
 			<resource>
-				<directory>${project.basedir}/UI/build</directory>
+				<directory>${project.basedir}/ui/build</directory>
 				<filtering>false</filtering>
 				<targetPath>public/</targetPath>
 			</resource>
