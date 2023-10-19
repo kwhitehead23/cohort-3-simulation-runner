@@ -75,12 +75,22 @@
 							<goal>install-node-and-npm</goal>
 						</goals>
 					</execution>
+					<execution> 
+						<id>run-npm-install</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<configuration>
+							<arguments>install</arguments>
+						</configuration>
+					</execution>
 					<execution>
 						<id>build-frontend</id>
 						<goals>
 							<goal>npm</goal>
 						</goals>
-						<phase>prepare-package</phase>
+						<phase>compile</phase>
 						<configuration>
 							<arguments>run build</arguments>
 						</configuration>
