@@ -1,10 +1,10 @@
 import "./App.css";
 import Grid from "./Components/Grid";
+import mazeData from "./Components/Data/mazes.json";
 function App() {
   return (
     <>
-   
-      <Grid />
+      <Grid data={mazeData} />
     </>
   );
 }
