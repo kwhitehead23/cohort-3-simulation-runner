@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Grid.css";
-import axios from "axios";
+
 
 function Grid({ data }) {
   const [mazeList, setMazeList] = useState([]);
