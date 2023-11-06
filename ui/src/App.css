@@ -1,1 +1,5 @@
-
+.settings {
+    float: inline-end;
+    border: outset;
+    padding: 35px;
+}
