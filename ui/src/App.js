@@ -1,13 +1,15 @@
-import "./App.css";
-import Grid from "./Components/Grid";
-import mazeData from "./Components/Data/mazes.json";
-import Legend from "./Components/Legend";
+import React from "react";
+import Navbar from "./Components/Navbar";
+import Simulation from "./pages/Simulation";
+
 function App() {
   return (
-    <>
-      <Legend />
-      <Grid data={mazeData} />
-    </>
+    <div>
+      <Navbar/>
+      <div className="Simulation">
+         <Simulation />
+      </div>
+    </div>
   );
 }
 

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Grid.css";
 
-
 function Grid({ data }) {
   const [mazeList, setMazeList] = useState([]);
   const [maze, setMaze] = useState([
@@ -23,7 +22,7 @@ function Grid({ data }) {
   console.log(mazeList);
 
   useEffect(() => {
-    setMaze(data.maze2.matrix);
+    setMaze(data?.maze1?.matrix);
   }, []);
   console.log(maze);
 
