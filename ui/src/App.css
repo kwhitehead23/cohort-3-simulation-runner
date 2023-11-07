@@ -1,4 +1,10 @@
-.simulation{
-    justify-content: right;
-    float:  top;
+/* App.css */
+
+.app-container {
+    display: flex;
+}
+
+.content-container {
+    flex: 1;
+    /* Add any styling to the content area */
 }
