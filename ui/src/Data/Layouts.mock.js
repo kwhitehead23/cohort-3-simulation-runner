@@ -10,13 +10,15 @@ const proxy = {
     },
   },
 
-  'GET /rulesets': (_,res) =>{
-    res.json(mockRulesets)
+  "GET /rulesets": (_, res) => {
+    res.json(mockRulesets);
   },
 
-  'DELETE /rulesets/:id': (req,res)=> {
-    mockRulesets =mockRulesets.filter(({id}) => id != req.params.id)
+  "DELETE /rulesets/:id": (req, res) => {
+    mockRulesets = mockRulesets.filter(({ id }) => id != req.params.id);
     res.send();
-  }
+  },
 };
 module.exports = proxy;
+
+///trouble shooting
