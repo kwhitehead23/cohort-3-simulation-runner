@@ -1,1 +1,10 @@
+/* App.css */
 
+.app-container {
+    display: flex;
+}
+
+.content-container {
+    flex: 1;
+
+}

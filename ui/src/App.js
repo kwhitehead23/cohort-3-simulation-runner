@@ -1,16 +1,18 @@
-import "./App.css";
+// App.js
+
+import React from "react";
+import Navbar from "./Components/Navbar";
+import Simulation from "./pages/Simulation";
+import "./App.css"; // Import your CSS file for styling
 
 function App() {
   return (
-    <>
-      <div className="App">
-        <h1> App Name</h1>
-        <h1>Hello</h1>
+    <div className="app-container">
+      <Navbar />
+      <div className="content-container">
+        <Simulation />
       </div>
-
-      <button> Back</button>
-      <button> Run </button>
-    </>
+    </div>
   );
 }
 
