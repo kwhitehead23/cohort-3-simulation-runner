@@ -1,5 +1,5 @@
 import React from "react";
-import Grid from "../Components/Grid";
+import Grid from "../Components/grid";
 import Legend from "../Components/Legend";
 import mazes from "../Data/mazes.json";
 
@@ -8,7 +8,7 @@ function Simulation(g) {
     <div>
       <h1>Simulation Page</h1>
       <Legend />
-      <Grid data={mazes}/>
+      <Grid data={mazes} />
     </div>
   );
 }
