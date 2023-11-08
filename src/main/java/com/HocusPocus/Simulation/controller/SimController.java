@@ -15,8 +15,6 @@ public class SimController {
     private SimulationService simulationService;
 
     // Create a new simulation
-    //Another change
-    //Calis Change
     @PostMapping
     public SimulationResults createSimulationResults(@RequestBody SimulationResults simulationResults) {
         return simulationService.createSimulationResults(simulationResults);

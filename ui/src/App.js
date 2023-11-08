@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <div className="settings">
-        <Settings />
+        <Settings  />
       </div>
 
       <Grid />

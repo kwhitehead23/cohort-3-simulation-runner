@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import Select from 'react-select';
 
-
-function Settings() {
+function Settings(data) {
 
     const layout = [
         { value: 'layout1', label: '1' },
