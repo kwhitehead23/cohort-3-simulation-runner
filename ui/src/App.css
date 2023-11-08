@@ -1,5 +1,18 @@
+database_connection
 .settings {
     float: inline-end;
     border: outset;
     padding: 35px;
 }
+=======
+/* App.css */
+
+.app-container {
+    display: flex;
+}
+
+.content-container {
+    flex: 1;
+
+}
+main
