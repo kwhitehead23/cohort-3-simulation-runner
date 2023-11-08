@@ -22,7 +22,7 @@ function Grid({ data }) {
   console.log(mazeList);
 
   useEffect(() => {
-    setMaze(data.Layout1.matrix1);
+    setMaze(data.Layout3.matrix3);
   }, []);
   console.log(maze);
 
