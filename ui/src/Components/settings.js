@@ -1,53 +1,39 @@
-import React, {useState} from 'react';
-import Select from 'react-select';
+import React, { useState, useEffect } from "react";
+import Select from "react-select";
 
-function Settings(data) {
+function Settings({ data, onSelect }) {
+  const [selectedLayout, setSelectedLayout] = useState(null);
+  const [layoutOptions, setLayoutOptions] = useState([]);
 
-    const layout = [
-        { value: 'layout1', label: '1' },
-  { value: 'layout2', label: '2' },
-  { value: 'layout3', label: '3' },
-    ];
-    const ruleset = [
-        { value: 'ruleset1', label: '1' },
-  { value: 'ruleset2', label: '2' },
-  { value: 'ruleset3', label: '3' },
-    ];
+  useEffect(() => {
+    const options = Object.keys(data).map((key) => ({
+      value: key,
+      label: data[key].name,
+    }));
+    setLayoutOptions(options);
 
-    const [selectedLayout, setSelectedLayout] = useState(null);
-    const [selectRuleset, setSelectedRuleset] = useState(null);
-    const [selectMaxIt, setSelectedMaxIt] = useState(null);
+ 
+    if (options.length > 0 && !selectedLayout) {
+      setSelectedLayout(options[0]);
+      onSelect(data[options[0].value]);
+    }
+  }, [data, onSelect, selectedLayout]);
 
-    return (
-        <div className="SettingsMenu">
-            <h2>Settings</h2>
-            <Select
-            defaultValue={selectedLayout}
-            onChange={setSelectedLayout}
-            options={layout}
-            >
-            <option value="">Select your option</option>
-            </Select>
+  const handleLayoutSelection = (selectedOption) => {
+    setSelectedLayout(selectedOption);
+    onSelect(data[selectedOption.value]);
+  };
 
-            <Select 
-            defaultValue={selectRuleset}
-            onChange={setSelectedRuleset}
-            options={ruleset}
-            />
-
-            <input
-            name="maxIterations"
-            type='number'
-            defaultValue={selectMaxIt}
-            onChange={setSelectedMaxIt}
-            />
-            <div className='runButton'>
-            <button type="button">Run Simulation</button>
-            </div>
-        </div>
-
-    )
-    
+  return (
+    <div>
+      <h2>Settings</h2>
+      <Select
+        value={selectedLayout}
+        onChange={handleLayoutSelection}
+        options={layoutOptions}
+      />
+    </div>
+  );
 }
 
 export default Settings;

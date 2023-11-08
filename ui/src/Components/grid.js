@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./Grid.css";
 
 function Grid({ data }) {
-  const [mazeList, setMazeList] = useState([]);
   const [maze, setMaze] = useState([
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -16,15 +15,12 @@ function Grid({ data }) {
   ]);
 
   useEffect(() => {
-    setMazeList(data);
-  }, []);
+    if (data && data.matrix) {
+      setMaze(data.matrix);
+    }
+  }, [data]);
 
-  console.log(mazeList);
-
-  useEffect(() => {
-    setMaze(data.Layout3.matrix3);
-  }, []);
-  console.log(maze);
+  console.log
 
   function getColor(cellValue) {
     switch (cellValue) {
@@ -35,7 +31,7 @@ function Grid({ data }) {
       case 2:
         return "black"; // Robot current position (black)
       case 3:
-        return " rgb(187, 202, 187)"; // Path color (light green)
+        return "rgb(187, 202, 187)"; // Path color (light green)
       case 4:
         return "rgb(255, 157, 158)"; // End Goal (light red)
       case 5:
