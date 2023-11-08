@@ -1,68 +1,50 @@
 package com.HocusPocus.Simulation;
 
-import org.junit.jupiter.api.Test;
+import com.HocusPocus.Simulation.repo.SimulationRepo;
+import io.restassured.RestAssured;
+import io.restassured.*;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
+import static org.mockito.Mockito.when;
+import static org.hamcrest.Matchers.*;
 
-@SpringBootTest
-class SimulationTests {
+import java.util.List;
 
-	@Test
-	public void Rulesetexist(){
+@RunWith(SpringRunner.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+public class SimulationTests {
+    @LocalServerPort
+    private Integer port;
 
-	given()
-    .when()
-    .get("  http://localhost:3000/users")
-    .then()
-    .assertThat()
-			.body("find { it.id == 1 }.name", equalTo("Daniel"));
-	}
+    @MockBean
+    private SimulationRepo simulationRepository;
 
-@Test
-	public  void deletingRuleset(){
-	given()
-			.when()
+    @Before
+    public void before() {
+        RestAssured.baseURI = "http://localhost";
+        RestAssured.port = this.port;
+    }
 
-			.delete("http://localhost:3000/users/{userId}", 6)
-			.then()
-			.assertThat()
-			.statusCode(200);
+    @Test
+    public void whenGetAllSimulationResultsIsCalled_ThenItReturnsAllSimulationResults() {
+        SimulationResults mock1 = new SimulationResults();
+        mock1.setId(1L);
+        SimulationResults mock2 = new SimulationResults();
+        mock2.setId(2L);
 
-	}
+        when(this.simulationRepository.findAll()).thenReturn(List.of(mock1, mock2));
 
-
-	@Test
-	public void createUser (){
-		String newUserName = "Dom"; // Specify the name for the new user
-
-		// Define the request to create a new user
-		given()
-				.body("{\"name\":\"" + newUserName + "\"}")
-				.header("Content-Type", "application/json")
-				.when()
-				.post("http://localhost:3000/users") // POST to the /users endpoint
-				.then()
-				.assertThat()
-				.statusCode(201);
-	}
-
-
-	@Test
-	public void updateUSer(){
-		String updatedUserName = "Daniel"; // Specify the new name for the user you want to update
-
-		// Define the request to update a user using PUT
-		given()
-				.body("{\"name\":\"" + updatedUserName + "\"}")
-				.header("Content-Type", "application/json")
-				.when()
-				.put("http://localhost:3000/users/{userId}", 1) // Update the user with ID 1
-				.then()
-				.assertThat()
-				.statusCode(200);
-
-
-	}
+        given()
+                .when().get("/results")
+                .then().statusCode(200)
+                .body("[0]", hasEntry("id", 1))
+                .body("[1]", hasEntry("id", 2));
+    }
 }
