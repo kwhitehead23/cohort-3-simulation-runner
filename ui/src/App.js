@@ -7,6 +7,9 @@ import Navbar from "./Components/Navbar";
 import Simulation from "./pages/Simulation";
 import "./App.css"; // Import your CSS file for styling
 
+
+
+
 function App() {
   return (
     <div className="app-container">
