@@ -11,10 +11,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.18.0",
     "react-scripts": "5.0.1",
-database_connection
     "react-select": "^5.8.0",
-=======
-main
     "web-vitals": "^3.5.0",
     "webpack": "^4.29.6"
   },
@@ -27,8 +24,16 @@ main
     "mock:rulesets": "mocker ./Data/rulesets.mock.js --host localhost --port 9008"
   },
   "browserslist": {
-    "production": [">0.2%", "not dead", "not op_mini all"],
-    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "devDependencies": {
     "mocker-api": "^2.9.8"
