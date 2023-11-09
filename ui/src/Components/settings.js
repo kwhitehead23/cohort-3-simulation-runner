@@ -7,12 +7,12 @@ function Settings({ data, onSelect }) {
 
   useEffect(() => {
     const options = Object.keys(data).map((key) => ({
-      value: key,
-      label: data[key].name,
-    }));
-    setLayoutOptions(options);
+    value: key,
+    label: data[key].name,
+  }));
+setLayoutOptions(options);
 
- 
+    // If there are options and selectedLayout is not set, set the first option as default
     if (options.length > 0 && !selectedLayout) {
       setSelectedLayout(options[0]);
       onSelect(data[options[0].value]);
@@ -21,10 +21,10 @@ function Settings({ data, onSelect }) {
 
   const handleLayoutSelection = (selectedOption) => {
     setSelectedLayout(selectedOption);
-    onSelect(data[selectedOption.value]);
+onSelect(data[selectedOption.value]);
   };
 
-  return (
+    return (
     <div>
       <h2>Settings</h2>
       <Select

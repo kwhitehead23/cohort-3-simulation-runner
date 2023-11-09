@@ -20,8 +20,6 @@ function Grid({ data }) {
     }
   }, [data]);
 
-  console.log
-
   function getColor(cellValue) {
     switch (cellValue) {
       case 0:
