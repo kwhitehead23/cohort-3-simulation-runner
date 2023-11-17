@@ -1,56 +1,36 @@
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
 
-function Settings({ layout, onSelect, ruleset }) {
+function Settings({ data, onSelect }) {
   const [selectedLayout, setSelectedLayout] = useState(null);
   const [layoutOptions, setLayoutOptions] = useState([]);
-  const [selectedRuleset, setSelectedRuleset] = useState(null);
-  const [rulesetOptions, setRulesetOptions] = useState([]);
 
   useEffect(() => {
-    // Map layout options
-    const options = Object.keys(layout).map((key) => ({
-      value: key,
-      label: layout[key].name,
-    }));
-    setLayoutOptions(options);
+    const options = Object.keys(data).map((key) => ({
+    value: key,
+    label: data[key].name,
+  }));
+setLayoutOptions(options);
 
     // If there are options and selectedLayout is not set, set the first option as default
     if (options.length > 0 && !selectedLayout) {
       setSelectedLayout(options[0]);
-      onSelect(layout[options[0].value]);
+      onSelect(data[options[0].value]);
     }
-  }, [layout, onSelect, selectedLayout]);
-
-  useEffect(() => {
-    // Map ruleset options
-    const options2 = Object.keys(ruleset).map((key) => ({
-      value: key,
-      label: ruleset[key].name,
-    }));
-    setRulesetOptions(options2);
-  }, [ruleset]);
+  }, [data, onSelect, selectedLayout]);
 
   const handleLayoutSelection = (selectedOption) => {
     setSelectedLayout(selectedOption);
-    onSelect(layout[selectedOption.value]);
+onSelect(data[selectedOption.value]);
   };
 
-  console.log(selectedLayout);
-  console.log(selectedRuleset);
-  return (
+    return (
     <div>
       <h2>Settings</h2>
       <Select
         value={selectedLayout}
         onChange={handleLayoutSelection}
         options={layoutOptions}
-      />
-
-      <Select
-        value={selectedRuleset}
-        onChange={(selectedOption) => setSelectedRuleset(selectedOption)}
-        options={rulesetOptions}
       />
     </div>
   );
