@@ -3,17 +3,14 @@ import "./App.css";
 import Grid from "./Components/grid";
 
 import React from "react";
-import Navbar from "./Components/Navbar";
+import SideBar from "./Components/Sidebar";
 import Simulation from "./pages/Simulation";
 import "./App.css"; // Import your CSS file for styling
-
-
-
 
 function App() {
   return (
     <div className="app-container">
-      <Navbar />
+      <SideBar />
       <div className="content-container">
         <Simulation />
       </div>
