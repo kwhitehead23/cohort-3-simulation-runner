@@ -2,14 +2,20 @@ import React, { useState } from "react";
 import Grid from "../Components/grid";
 import Legend from "../Components/Legend";
 import Layouts from "../Data/Layouts.json";
-import Settings from "../Components/settings";
+import Rulesets from "../Data/Rulesets.json";
+import Settings from "../Components/Settings";
 import "./Simulation.css";
 
 function Simulation() {
-  const [selectedLayout, setSelectedLayout] = useState(null); // Set default layout
+  const [selectedLayout, setSelectedLayout] = useState(null);
+  const [selectedRuleset, setSelectedRuleset] = useState(null);
 
   const handleLayoutChange = (layout) => {
     setSelectedLayout(layout);
+  };
+
+  const handleRulesetChange = (ruleset) => {
+    setSelectedRuleset(ruleset); // Corrected this line
   };
 
   return (
@@ -20,8 +26,14 @@ function Simulation() {
         <Legend />
         <Grid data={selectedLayout} />
       </div>
+
       <div className="settings-container">
-        <Settings onSelect={handleLayoutChange} data={Layouts} />
+        <Settings
+          onSelect={handleLayoutChange}
+          onSelect2={handleRulesetChange}
+          layout={Layouts}
+          ruleset={Rulesets}
+        />
       </div>
     </div>
   );
