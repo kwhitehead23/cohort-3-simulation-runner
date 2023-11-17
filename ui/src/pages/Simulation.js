@@ -15,7 +15,7 @@ function Simulation() {
   };
 
   const handleRulesetChange = (ruleset) => {
-    setSelectedRuleset(ruleset); // Corrected this line
+    setSelectedRuleset(ruleset);
   };
 
   return (
@@ -29,9 +29,8 @@ function Simulation() {
 
       <div className="settings-container">
         <Settings
-          onSelect={handleLayoutChange}
-          onSelect2={handleRulesetChange}
           layout={Layouts}
+          onSelect={handleLayoutChange}
           ruleset={Rulesets}
         />
       </div>
