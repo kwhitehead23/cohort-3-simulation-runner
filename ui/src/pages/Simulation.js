@@ -33,6 +33,7 @@ function Simulation() {
           onSelect={handleLayoutChange}
           ruleset={Rulesets}
         />
+
       </div>
     </div>
   );
