@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Form } from "react-bootstrap";
 
 function Settings({ layout, onSelect, ruleset }) {
   const [selectedLayout, setSelectedLayout] = useState(null);
@@ -54,6 +56,19 @@ function Settings({ layout, onSelect, ruleset }) {
         onChange={(selectedOption) => setSelectedRuleset(selectedOption)}
         options={rulesetOptions}
       />
+
+      <Form.Group controlId="maxIt">
+        <Form.Control
+          required
+          name="maxIt"
+          type="number"
+          placeholder="Max Iteration"
+        />
+        <Form.Control.Feedback type="invalid">Check!</Form.Control.Feedback>
+      </Form.Group>
+      <div className="runButton">
+        <button type="button">Run Simulation</button>
+      </div>
     </div>
   );
 }

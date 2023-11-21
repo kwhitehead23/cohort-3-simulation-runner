@@ -4,6 +4,7 @@ import Legend from "../Components/Legend";
 import Layouts from "../Data/Layouts.json";
 import Rulesets from "../Data/Rulesets.json";
 import Settings from "../Components/settings";
+// Fix settings
 import "./Simulation.css";
 
 function Simulation() {
