@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "bootstrap": "^5.3.2",
     "eslint-config-react-app": "^7.0.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.9.1",
@@ -18,12 +19,12 @@
     "webpack": "^4.29.6"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set PORT=9010 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "mock:layouts": "mocker ./Data/Layouts.mock.js --host localhost --port 9010",
-    "mock:rulesets": "mocker ./Data/rulesets.mock.js --host localhost --port 9008"
+    "mock:layouts": "mocker ./Data/Layouts.mock.js --host localhost --port 9003",
+    "mock:rulesets": "mocker ./Data/rulesets.mock.js --host localhost --port 8080"
   },
   "browserslist": {
     "production": [
