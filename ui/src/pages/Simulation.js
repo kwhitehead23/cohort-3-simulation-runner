@@ -3,7 +3,7 @@ import Grid from "../Components/grid";
 import Legend from "../Components/Legend";
 import Layouts from "../Data/Layouts.json";
 import Rulesets from "../Data/Rulesets.json";
-import Settings from "../Components/Settings";
+import Settings from "../Components/settings";
 import "./Simulation.css";
 
 function Simulation() {
