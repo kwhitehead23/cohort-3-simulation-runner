@@ -18,12 +18,13 @@
     "webpack": "^4.29.6"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set PORT=9010 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "mock:layouts": "mocker ./Data/Layouts.mock.js --host localhost --port 9010",
-    "mock:rulesets": "mocker ./Data/rulesets.mock.js --host localhost --port 9008"
+    "api": "mocker ./mocker",
+    "mock:layouts": "mocker ./Data/Layouts.mock.js --host localhost --port 9003",
+    "mock:rulesets": "mocker ./Data/rulesets.mock.js --host localhost --port 8080"
   },
   "browserslist": {
     "production": [
