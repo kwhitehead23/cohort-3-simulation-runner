@@ -1,6 +1,6 @@
 package com.HocusPocus.Simulation.controller;
 
-import com.HocusPocus.Simulation.SimulationResults;
+import com.HocusPocus.Simulation.simulationDb.SimulationResults;
 import com.HocusPocus.Simulation.SimulationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -27,13 +27,13 @@ public class SimController {
     }
 
     // Get result by ID
-    @GetMapping("/{id}")
+    @GetMapping("results/{id}")
     public Optional<SimulationResults> getSimulationById(@PathVariable Long id) {
         return simulationService.getSimulationById(id);
     }
 
     // Update result by ID
-    @PutMapping("/{id}")
+    @PutMapping("results/{id}")
     public SimulationResults updateSimulationResults(@PathVariable Long id, @RequestBody SimulationResults simulationResultsDetails) {
         return simulationService.updateSimulation(id, simulationResultsDetails);
     }
@@ -46,7 +46,7 @@ public class SimController {
     }
 
     // Delete user by ID
-    @DeleteMapping("/{id}")
+    @DeleteMapping("results/{id}")
     public void deleteSimulationResults(@PathVariable Long id) {
         simulationService.deleteSimulationResults(id);
     }
