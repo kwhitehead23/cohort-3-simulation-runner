@@ -1,4 +1,4 @@
-package com.HocusPocus.Simulation;
+package com.HocusPocus.Simulation.simulationDb;
 
 import jakarta.persistence.*;
 

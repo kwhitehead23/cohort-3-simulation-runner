@@ -24,6 +24,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "api": "mocker ./mocker",
     "mock:layouts": "mocker ./Data/Layouts.mock.js --host localhost --port 9003",
     "mock:rulesets": "mocker ./Data/rulesets.mock.js --host localhost --port 8080"
   },

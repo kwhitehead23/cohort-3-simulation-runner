@@ -1,8 +1,8 @@
 package com.HocusPocus.Simulation;
 
 import com.HocusPocus.Simulation.repo.SimulationRepo;
+import com.HocusPocus.Simulation.simulationDb.SimulationResults;
 import io.restassured.RestAssured;
-import io.restassured.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
