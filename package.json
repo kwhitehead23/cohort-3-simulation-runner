@@ -6,5 +6,12 @@
   },
   "devDependencies": {
     "mocker-api": "^2.9.10"
+  },
+
+    "scripts":{
+      "mock:layouts": "mocker ./mocks/layouts.mock.js --host localhost --port 8080",
+    "mock:rulesets": "mocker ./mocks/rulesets.mock.js --host localhost --port 9003"
   }
 }
+
+
