@@ -9,7 +9,7 @@ import { RiRobot2Fill } from "react-icons/ri";
 
 import "./Sidebar.css";
 
-function SideBar({ currentPage = "dashboard" }) {
+function SideBar({ currentPage = "simulation" }) {
   return (
     <Card className="side-bar " bg="dark" text="light">
       <div>

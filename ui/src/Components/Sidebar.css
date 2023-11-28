@@ -1,12 +1,12 @@
 .side-bar {
     border-radius: 0;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: black;
+    position: fixed;
 }
-
+/** min height change, change position */
 .side-bar>div {
     display: flex;
     flex-direction: column;
@@ -25,15 +25,12 @@
     align-items: center;
     padding-top: 1.5%;
     padding-bottom: 1.5%;
-    color: white;
-    text-decoration: none;
 }
 
 .side-bar>div>a>svg,
 .side-bar>div>div>svg {
     margin-right: 0.5rem;
     font-size: 1.25rem;
-    color: white;
 }
 
 .side-bar>div>div>svg {
