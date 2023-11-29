@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import Grid from "../Components/grid";
 import Legend from "../Components/Legend";
-import Layouts from "../Data/Layouts.json";
-import Rulesets from "../Data/Rulesets.json";
 import Settings from "../Components/settings";
 // Fix settings
 import "./Simulation.css";
@@ -30,9 +28,9 @@ function Simulation() {
 
       <div className="settings-container">
         <Settings
-          layout={Layouts}
+          layout={{}}
           onSelect={handleLayoutChange}
-          ruleset={Rulesets}
+          ruleset={{}}
         />
 
       </div>
