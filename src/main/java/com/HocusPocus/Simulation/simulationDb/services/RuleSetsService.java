@@ -21,12 +21,4 @@ public class RuleSetsService {
                 .bodyToMono(new ParameterizedTypeReference<List<RuleSet>>() {})
                 .block();
     }
-
-    public void deleteRuleSet(Long id) {
-        this.webClient.delete()
-                .uri("http://localhost:8080/rulesets/{id}", id)
-                .retrieve()
-                .toBodilessEntity()
-                .block();
-    }
 }

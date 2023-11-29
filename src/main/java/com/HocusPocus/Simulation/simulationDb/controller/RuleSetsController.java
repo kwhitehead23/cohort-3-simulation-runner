@@ -19,10 +19,4 @@ public class RuleSetsController {
         return ResponseEntity.ok()
                 .body(this.ruleSetsService.getAllRuleSets());
     }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteRuleSet(@PathVariable Long id) {
-        this.ruleSetsService.deleteRuleSet(id);
-        return ResponseEntity.noContent().build();
-    }
 }
