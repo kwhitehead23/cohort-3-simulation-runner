@@ -8,7 +8,6 @@ import "./Simulation.css";
 function Simulation() {
   return (
     <div>
-      <h1>Simulation Page</h1>
 
       <div className="content-container">
         <Legend />

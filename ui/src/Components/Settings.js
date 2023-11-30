@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Select from "react-select";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Form } from "react-bootstrap";
+import { Form, Dropdown } from "react-bootstrap";
+import "./settings.css";
 
 import { useSelector, useDispatch } from 'react-redux'
 import { updateLayout, updateRuleset, updateMaxIterations } from '../store/settingsSlice';
@@ -29,15 +30,20 @@ function Settings() {
 
   // View
   return (
-    <div>
-      <h2>Settings</h2>
+    <Form className="settings-form">
+      <h3 className="settings-title">Settings</h3>
+
+      <div className="settings-divider"></div>
+
       <Select
+        className="settings-select"
         value={selectedLayoutOption}
         onChange={onSelectLayout}
         options={layoutOptions}
       />
-
+      <div className="settings-divider"></div>
       <Select
+        className="settings-select"
         value={selectedRulesetOption}
         onChange={onSelectRuleset}
         options={rulesetOptions}
@@ -45,19 +51,31 @@ function Settings() {
         isDisabled={isLoading || error}
         isLoading={isLoading}
       />
-
-      <Form.Control
-        required
-        name="maxIt"
-        type="number"
-        onChange={onChangeMaxIterations}
-        value={maxIterations}
-      />
-      <div className="runButton">
+      <div className="settings-divider"></div>
+      <Form.Group controlId="maxIt" className="settings-maxIt">
+        <Form.Control
+          required
+          name="maxIt"
+          type="number"
+          onChange={onChangeMaxIterations}
+          value={maxIterations}
+        />
+        <Form.Control.Feedback type="invalid">Check!</Form.Control.Feedback>
+      </Form.Group>
+      <div className="settings-runButton">
         {/* STOP AND ASK BEFORE YOU IMPLEMENT THIS!! Story #46 */}
-        <button type="button" className="btn btn-primary">Run Simulation</button>
+        <button type="button" className="settings-button">Run Simulation</button>
       </div>
-    </div>
+
+      {/* Additional dropdown */}
+      <div className="dropdown">
+        <a className="btn text-light" href="#" onClick={(e) => this.handleOption(e)}>Open dropdown</a>
+        <div className="dropdown-menu dropdown-menu-left dropdown-menu-arrow">
+          <a className="dropdown-item" href="#">Edit</a>
+          <a className="dropdown-item" href="#">Delete</a>
+        </div>
+      </div>
+    </Form >
   );
 }
 
