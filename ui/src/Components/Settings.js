@@ -5,42 +5,45 @@ import { Form } from "react-bootstrap";
 
 import { useSelector, useDispatch } from 'react-redux'
 import { updateLayout, updateRuleset, updateMaxIterations } from '../store/settingsSlice';
+import { useGetRuleSetsQuery } from '../store/ruleSetsSlice';
 
 function Settings() {
+  // Hooks
   const dispatch = useDispatch()
-  const selectedLayout = useSelector((state) => state.settings.layoutId);
-  const selectedRuleset = useSelector((state) => state.settings.rulesetId);
+  const layoutId = useSelector((state) => state.settings.layoutId);
+  const rulesetId = useSelector((state) => state.settings.rulesetId);
   const maxIterations = useSelector((state) => state.settings.maxIterations);
+  // Question: should we handle a possible error here?
+  const { data: rulesets = [], error, isLoading } = useGetRuleSetsQuery();
 
-  // what populates the drop down
-  const [layoutOptions, setLayoutOptions] = useState([
-    { value: 1, label: 'Chocolate' },
-    { value: 2, label: 'Strawberry' },
-    { value: 3, label: 'Vanilla' }
-  ]);
-  const [rulesetOptions, setRulesetOptions] = useState([
-    { value: 1, label: 'Chocolate' },
-    { value: 2, label: 'Strawberry' },
-    { value: 3, label: 'Vanilla' }
-  ]);
-
+  // Event Handlers 
   const onSelectLayout = (selectedOption) => dispatch(updateLayout(selectedOption.value));
   const onSelectRuleset = (selectedOption) => dispatch(updateRuleset(selectedOption.value));
   const onChangeMaxIterations = (e) => dispatch(updateMaxIterations(e.target.value));
 
+  // Data Transformations
+  const rulesetOptions = rulesets.map((ruleset) => ({ value: ruleset.id, label: ruleset.name }));
+  const layoutOptions = [];
+  const selectedLayoutOption = layoutOptions.find(({ value }) => value === layoutId);
+  const selectedRulesetOption = rulesetOptions.find(({ value }) => value === rulesetId)
+
+  // View
   return (
     <div>
       <h2>Settings</h2>
       <Select
-        value={layoutOptions.find(({ value }) => value === selectedLayout)}
+        value={selectedLayoutOption}
         onChange={onSelectLayout}
         options={layoutOptions}
       />
 
       <Select
-        value={rulesetOptions.find(({ value }) => value === selectedRuleset)}
+        value={selectedRulesetOption}
         onChange={onSelectRuleset}
         options={rulesetOptions}
+        // Question why are we disabling this select when it's loading or an error?
+        isDisabled={isLoading || error}
+        isLoading={isLoading}
       />
 
       <Form.Control
@@ -51,6 +54,7 @@ function Settings() {
         value={maxIterations}
       />
       <div className="runButton">
+        {/* STOP AND ASK BEFORE YOU IMPLEMENT THIS!! Story #46 */}
         <button type="button" className="btn btn-primary">Run Simulation</button>
       </div>
     </div>

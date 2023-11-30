@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+// https://redux-toolkit.js.org/tutorials/quick-start
 export const settingsSlice = createSlice({
   name: 'settings',
   initialState: {
