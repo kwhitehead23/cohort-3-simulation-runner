@@ -3,68 +3,55 @@ import Select from "react-select";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form } from "react-bootstrap";
 
-function Settings({ layout, onSelect, ruleset }) {
-  const [selectedLayout, setSelectedLayout] = useState(null);
-  const [layoutOptions, setLayoutOptions] = useState([]);
-  const [selectedRuleset, setSelectedRuleset] = useState(null);
-  const [rulesetOptions, setRulesetOptions] = useState([]);
+import { useSelector, useDispatch } from 'react-redux'
+import { updateLayout, updateRuleset, updateMaxIterations } from '../store/settingsSlice';
 
-  useEffect(() => {
-    // Map layout options
-    const options = Object.keys(layout).map((key) => ({
-      value: key,
-      label: layout[key].name,
-    }));
-    setLayoutOptions(options);
+function Settings() {
+  const dispatch = useDispatch()
+  const selectedLayout = useSelector((state) => state.settings.layoutId);
+  const selectedRuleset = useSelector((state) => state.settings.rulesetId);
+  const maxIterations = useSelector((state) => state.settings.maxIterations);
 
-    // If there are options and selectedLayout is not set, set the first option as default
-    if (options.length > 0 && !selectedLayout) {
-      setSelectedLayout(options[0]);
-      onSelect(layout[options[0].value]);
-    }
-  }, [layout, onSelect, selectedLayout]);
+  // what populates the drop down
+  const [layoutOptions, setLayoutOptions] = useState([
+    { value: 1, label: 'Chocolate' },
+    { value: 2, label: 'Strawberry' },
+    { value: 3, label: 'Vanilla' }
+  ]);
+  const [rulesetOptions, setRulesetOptions] = useState([
+    { value: 1, label: 'Chocolate' },
+    { value: 2, label: 'Strawberry' },
+    { value: 3, label: 'Vanilla' }
+  ]);
 
-  useEffect(() => {
-    // Map ruleset options
-    const options2 = Object.keys(ruleset).map((key) => ({
-      value: key,
-      label: ruleset[key].name,
-    }));
-    setRulesetOptions(options2);
-  }, [ruleset]);
-
-  const handleLayoutSelection = (selectedOption) => {
-    setSelectedLayout(selectedOption);
-    onSelect(layout[selectedOption.value]);
-  };
+  const onSelectLayout = (selectedOption) => dispatch(updateLayout(selectedOption.value));
+  const onSelectRuleset = (selectedOption) => dispatch(updateRuleset(selectedOption.value));
+  const onChangeMaxIterations = (e) => dispatch(updateMaxIterations(e.target.value));
 
   return (
     <div>
       <h2>Settings</h2>
       <Select
-        value={selectedLayout}
-        onChange={handleLayoutSelection}
+        value={layoutOptions.find(({ value }) => value === selectedLayout)}
+        onChange={onSelectLayout}
         options={layoutOptions}
       />
 
-      {/* Assuming you want to display ruleset options as well */}
       <Select
-        value={selectedRuleset}
-        onChange={(selectedOption) => setSelectedRuleset(selectedOption)}
+        value={rulesetOptions.find(({ value }) => value === selectedRuleset)}
+        onChange={onSelectRuleset}
         options={rulesetOptions}
       />
 
-      <Form.Group controlId="maxIt">
-        <Form.Control
-          required
-          name="maxIt"
-          type="number"
-          placeholder="Max Iteration"
-        />
-        <Form.Control.Feedback type="invalid">Check!</Form.Control.Feedback>
-      </Form.Group>
+      <Form.Control
+        required
+        name="maxIt"
+        type="number"
+        onChange={onChangeMaxIterations}
+        value={maxIterations}
+      />
       <div className="runButton">
-        <button type="button">Run Simulation</button>
+        <button type="button" className="btn btn-primary">Run Simulation</button>
       </div>
     </div>
   );
